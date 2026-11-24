@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>استوديو الأناقة</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff3ef;--card:#fffaf5;--ink:#4a3548;--soft:#8a7088;--rose:#f4a6bd;--lav:#cdb8ee;--gold:#d9a07a;--line:#f1dce1;--on:#f9c9d8;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2a2030;--card:#382a40;--ink:#fbeaf0;--soft:#c9b0c4;--line:#55405e;--on:#6b3f66}}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 85% 0,#e9def7 0,transparent 40%),var(--bg);color:var(--ink);font-family:Tajawal,"Segoe UI",Tahoma,sans-serif}
+header{display:flex;justify-content:space-between;align-items:center;gap:8px;max-width:1080px;margin:0 auto;padding:14px 14px 0}
+h1{margin:0;font-size:clamp(20px,4vw,30px);font-weight:800;letter-spacing:0}
+h1 small{display:block;font-size:13px;font-weight:400;color:var(--soft)}
+main{display:grid;grid-template-columns:minmax(300px,420px) 1fr;gap:18px;max-width:1080px;margin:0 auto;padding:14px}
+@media(max-width:860px){main{grid-template-columns:1fr}}
+.stage,.panel{background:var(--card);border-radius:28px;padding:12px;box-shadow:0 10px 30px #c9a0b433}
+.cvw{position:relative}
+#cv{width:100%;height:auto;display:block;border-radius:20px}
+.pop{animation:pop .35s cubic-bezier(.34,1.56,.64,1)}
+@keyframes pop{40%{transform:scale(1.025)}}
+#live{position:absolute;top:10px;inset-inline-start:10px;background:#fffaf5ee;color:#4a3548;border-radius:999px;padding:5px 12px;font-weight:800;font-size:13px;box-shadow:0 3px 10px #0002}
+.bar{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.btn,.chip,.tab{font:inherit;border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 14px;cursor:pointer;transition:transform .25s cubic-bezier(.34,1.56,.64,1),background .2s}
+.btn:hover,.chip:hover,.tab:hover,.sw:hover{transform:scale(1.07)}
+.btn:active,.chip:active,.tab:active,.sw:active{transform:scale(.9)}
+.btn:focus-visible,.chip:focus-visible,.tab:focus-visible,.sw:focus-visible{outline:3px solid var(--lav);outline-offset:2px}
+.btn.main{background:linear-gradient(135deg,#f7a8c4,#cdb8ee);color:#3b2540;border-color:transparent;font-weight:800;flex:1 1 100%;font-size:17px;padding:12px}
+.on{background:var(--on);border-color:var(--rose)}
+#tabs{display:flex;gap:6px;overflow-x:auto;padding:4px 2px 10px}
+.tab{white-space:nowrap;font-weight:700}
+.row{margin-bottom:14px}.row h4{margin:0 0 7px;font-size:14px;color:var(--soft)}
+.ch{display:flex;flex-wrap:wrap;gap:7px}
+.chip{padding:6px 12px;font-size:14px}
+.tg{display:grid;grid-template-columns:repeat(auto-fill,minmax(74px,1fr));gap:8px}
+.th{padding:3px;border-radius:18px;border:3px solid var(--line);background:#fff7f9;cursor:pointer;transition:transform .25s cubic-bezier(.34,1.56,.64,1);aspect-ratio:1;display:grid;place-items:center;font-size:22px;color:#b99}
+.th canvas{width:100%;height:100%;border-radius:13px;display:block}
+.th:hover{transform:scale(1.08) rotate(-2deg)}.th:active{transform:scale(.9)}.th.on{border-color:#f08aae;background:#ffe3ec;transform:scale(1.06);box-shadow:0 4px 12px #f08aae66}
+#cv{background:radial-gradient(circle,#fff 0,#fbe6ee 100%)}
+.dot{display:inline-block;width:11px;height:11px;border-radius:50%;margin-inline-end:6px;border:1px solid #0003}
+.sw{width:34px;height:34px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 2px var(--line);cursor:pointer;transition:transform .25s cubic-bezier(.34,1.56,.64,1);font-size:14px;color:#999}
+.sw.on{box-shadow:0 0 0 3px var(--rose);transform:scale(1.15)}
+input[type=range]{width:100%;accent-color:#f08aae}
+.card{margin-top:10px;background:var(--bg);border-radius:20px;padding:12px;display:none}
+.card.show{display:block;animation:pop .4s cubic-bezier(.34,1.56,.64,1)}
+.stars{font-size:26px;color:#f2b84b;letter-spacing:2px}
+.big{font-size:34px;font-weight:800}
+.badge{display:inline-block;background:linear-gradient(135deg,#f7a8c4,#cdb8ee);color:#3b2540;border-radius:999px;padding:4px 14px;font-weight:800}
+.m{display:grid;grid-template-columns:130px 1fr 34px;gap:8px;align-items:center;font-size:13px;margin:5px 0}
+.m i{height:9px;border-radius:9px;background:var(--line);overflow:hidden}.m b{display:block;height:100%;background:linear-gradient(90deg,#f7a8c4,#cdb8ee);transition:width .6s}
+ul{padding-inline-start:20px;margin:8px 0 0;font-size:14px;line-height:1.7}
+.sw2{display:flex;gap:8px;align-items:center;font-size:14px;margin-bottom:8px}
+#flash{position:fixed;inset:0;background:#fff;opacity:0;pointer-events:none;z-index:30}
+#flash.go{animation:fl .45s}@keyframes fl{0%{opacity:.95}100%{opacity:0}}
+#modal{position:fixed;inset:0;background:#2a1a30cc;display:none;align-items:center;justify-content:center;z-index:20;padding:12px;overflow:auto}
+#modal.show{display:flex}
+.mb{background:var(--card);border-radius:26px;padding:14px;max-width:440px;width:100%;text-align:center;animation:pop .4s cubic-bezier(.34,1.56,.64,1)}
+#pv{max-height:58vh;width:auto;max-width:100%;border-radius:14px;box-shadow:0 6px 20px #0003}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media(min-width:861px){.stage{position:sticky;top:10px;align-self:start}}
+h1{background:linear-gradient(90deg,#e8709a,#9a7be0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tg{grid-template-columns:repeat(auto-fill,minmax(82px,1fr))}
+</style></head><body>
+<header><h1>استوديو الأناقة ✨<small>ألبسي، تزيّني، قيّمي إطلالتك والتقطي صورة!</small></h1>
+<button class="btn" id="snd" aria-label="الصوت">🔊</button></header>
+<main>
+<section class="stage">
+ <label class="sw2"><input type="checkbox" id="chk"> وضع التحدّي 🏆</label>
+ <div class="card" id="chal"></div>
+ <div class="cvw"><canvas id="cv" width="800" height="1200" aria-label="الشخصية"></canvas><div id="live"></div></div>
+ <div class="bar">
+  <button class="btn main" id="shot">📸 التقاط صورة</button>
+  <button class="btn" id="rb">⭐ قيّمي إطلالتي</button>
+  <button class="btn" id="rnd">🎲 عشوائي</button>
+  <button class="btn" id="rst">↺ إعادة ضبط</button>
+ </div>
+ <div class="card" id="rate"></div>
+</section>
+<section class="panel"><div id="tabs" role="tablist"></div><div id="opts"></div></section>
+</main>
+<div id="flash"></div>
+<div id="modal"><div class="mb">
+ <canvas id="pv" width="800" height="1200"></canvas>
+ <div class="bar" style="justify-content:center">
+  <label class="sw2"><input type="checkbox" id="fr" checked> إطار</label>
+  <label class="sw2"><input type="checkbox" id="bd" checked> شارة التقييم</label>
+  <label class="sw2"><input type="checkbox" id="tg" checked> وسم وتاريخ</label>
+ </div>
+ <div class="bar"><button class="btn main" id="dl">⬇️ تحميل PNG</button>
+ <button class="btn" id="ed" style="flex:1">✏️ تعديل الإطلالة</button>
+ <button class="btn" id="nw" style="flex:1">✨ إطلالة جديدة</button></div>
+</div></div>
+<script>
+/* ============ بيانات الخيارات ============ */
+const SKINS=[['عاجية','#ffe3d3'],['خوخية','#f7cfb4'],['قمحية','#e8b48f'],['برونزية','#c98e66'],['كاكاو','#8d5a3c']];
+const EYEC=[['بنّي','#6b4a3a'],['أزرق','#4f86c6'],['أخضر','#4aa57a'],['بنفسجي','#8a63c9'],['عسلي','#c48a4d']];
+const HAIRC=[['أسود','#3a2a2a'],['كستنائي','#7a4a2c'],['أشقر','#d9a85f'],['ذهبي فاتح','#f4d9a0'],['وردي','#e06a8a'],['بنفسجي','#a07be0'],['فضي','#cfd6e6']];
+const BL=[['بدون',null],['وردي','#ff8fa8'],['خوخي','#ff9d7a'],['فوشيا','#e66a95'],['بنفسجي','#c9a0ff']];
+const SH=[['بدون',null],['وردي','#f4a6c8'],['لافندر','#c7a8f0'],['سماوي','#8fd0e8'],['ذهبي','#f2c27a'],['أخضر','#9fd6a8']];
+const LIP=[['طبيعي','#e58f97'],['وردي','#f06c8f'],['توتي','#a63a68'],['أحمر','#d02f45'],['مرجاني','#f08c6c'],['لمعة شفافة','#f2a9b4',1]];
+// ملابس: [الاسم، اللون، لون ثانوي، الستايل، النقشة، الشكل]
+const DR=[['بدون'],['فستان وردي منقّط','#f8c8d8','#fff','sweet','dots','a'],['فستان سهرة أحمر','#c0394f','#f5d27a','party','plain','l'],['فستان لافندر','#cdb8ee','#fff','chic','plain','a'],['فستان صيفي','#fff0a8','#f4a6b8','casual','stripes','m'],['فستان نعناعي','#b9ead6','#fff','sweet','dots','m'],['فستان أزرق ملكي','#4a5bb5','#f5d27a','party','plain','l'],['فستان كم منفوخ','#ffd1e0','#fff','sweet','plain','a','puff']];
+const TP=[['بدون'],['بلوزة كريمية','#fff2dc','#f4b6c2','chic','plain'],['تيشيرت رياضي','#ffffff','#7cc7e8','sporty','stripes'],['كنزة دافئة','#e6c7a0','#fff','cozy','dots'],['توب وردي','#f7a8c0','#fff','sweet','plain'],['كروب أصفر','#ffe27a','#fff','casual','plain'],['هودي بنفسجي','#b9a6e8','#fff','cozy','plain','long']];
+const BT=[['بدون'],['تنورة وردية','#f2b8cc','#fff','sweet','plain','skirt'],['جينز أزرق','#7fa3d6','#fff','casual','plain','pants'],['شورت رياضي','#b9a6e8','#fff','sporty','plain','shorts'],['تنورة مطوية','#6b5b8e','#9a89b8','chic','stripes','skirt'],['تنورة جلد','#3a3340','#fff','party','plain','skirt'],['جينز قصير','#8fb4e8','#fff','casual','plain','shorts']];
+const OT=[['بدون'],['كارديجان كريمي','#f5e6cf','#e0c9a6','cozy','plain'],['جاكيت جينز','#8fb2e0','#fff','casual','plain'],['بليزر أنيق','#3b3b4f','#f5d27a','chic','plain'],['معطف وردي','#f6b8cc','#fff','chic','plain'],['جاكيت رياضي','#7cc7e8','#fff','sporty','stripes']];
+// إكسسوارات: [الاسم، الستايل]
+const ACC={glasses:[['بدون'],['نظارة دائرية','chic'],['نظارة شمسية','party'],['نظارة قلوب','sweet'],['نظارة قطّة','chic']],
+earrings:[['بدون'],['لؤلؤ','chic'],['حلقات ذهبية','party'],['نجوم','sweet'],['قلوب','sweet']],
+necklace:[['بدون'],['عقد لؤلؤ','chic'],['قلادة قلب','sweet'],['طوق قصير','party']],
+bag:[['بدون'],['حقيبة صغيرة','chic'],['حقيبة قماش','casual']],
+hat:[['بدون'],['عصابة فيونكة','sweet'],['بيريه','chic'],['دبوس زهرة','sweet'],['قبعة شمس','casual'],['تاج','party'],['قبعة صوف','cozy']],
+bracelet:[['بدون'],['سوار ذهبي','party'],['سوار خرز','casual']],
+prop:[['بدون'],['كوب قهوة','casual'],['باقة ورد','sweet'],['نجمة','party'],['قطة','cozy'],['بالون','party'],['آيس كريم','sweet']]};
+const BGN=['مقهى مشمس','غرفة باستيل','شرفة باريسية','حفلة نيون','نزهة في الحديقة','شاطئ البحر','يوم ثلجي'].map(n=>[n]);
+const TAGN={casual:'كاجوال',party:'سهرة',chic:'أنيق',cozy:'دافئ',sporty:'رياضي',sweet:'حالم'};
+const THEMES=[{n:'موعد برانش ☕',w:{casual:1,chic:1,sweet:.7},bg:0},{n:'حفلة المساء 🌙',w:{party:1,chic:.8},bg:3},{n:'يوم دراسة دافئ 📚',w:{cozy:1,casual:.7},bg:1},{n:'نزهة في الحديقة 🌷',w:{sweet:1,casual:.8},bg:4},{n:'جولة في باريس 🗼',w:{chic:1,sweet:.5},bg:2},{n:'يوم رياضي 🏃‍♀️',w:{sporty:1,casual:.6},bg:4}];
+const TT={chic:['أيقونة الأناقة 👑','متألقة بالأناقة'],party:['نجمة السجادة الحمراء ⭐','ملكة الحفلات'],sweet:['حالمة الباستيل 🌸','قلب الباستيل'],cozy:['ملكة الدفء ☕','محبة الأجواء الدافئة'],sporty:['بطلة الستايل 🏅','نشيطة وأنيقة'],casual:['صاحبة الذوق العفوي 🌼','عفوية وجميلة']};
+const TABS=[
+{n:'🎀 الأساس والشعر',r:[{k:'skin',t:'لون البشرة',o:SKINS,sw:1},{k:'eyes',t:'لون العينين',o:EYEC,sw:1},{k:'eyeStyle',t:'شكل العينين',o:[['واسعة'],['ناعسة'],['مبتسمة']]},{k:'brow',t:'الحواجب',o:[['ناعمة'],['مقوّسة'],['سميكة']]},{k:'hair',t:'تسريحة الشعر',o:[['طويل'],['كاريه'],['كعكة'],['ذيل حصان'],['ذيلان'],['ضفيرة'],['كعكتان'],['قصير']]},{k:'hairC',t:'لون الشعر',o:HAIRC,sw:1}]},
+{n:'💄 المكياج',r:[{k:'blush',t:'أحمر الخدود',o:BL,sw:1},{sl:1,t:'قوة أحمر الخدود'},{k:'shadow',t:'ظلال العيون',o:SH,sw:1},{k:'liner',t:'الآيلاينر والرموش',o:[['بدون'],['آيلاينر مجنّح']]},{k:'lip',t:'أحمر الشفاه',o:LIP,sw:1},{k:'spark',t:'هايلايتر ولمعة',o:[['بدون'],['لمعة ✨']]}]},
+{n:'👗 الملابس',r:[{k:'dress',t:'فساتين (تغطي القطع الأخرى)',o:DR},{k:'top',t:'القمصان والتوبات',o:TP},{k:'bottom',t:'التنانير والبناطيل',o:BT},{k:'outer',t:'الجاكيتات والكارديجان',o:OT}]},
+{n:'💍 الإكسسوارات',r:[['glasses','النظارات'],['earrings','الأقراط'],['necklace','العقود'],['bag','الحقائب'],['hat','القبعات والدبابيس'],['bracelet','الأساور'],['prop','الإضافات']].map(([k,t])=>({k,t,o:ACC[k]}))},
+{n:'🏞️ الخلفية',r:[{k:'bg',t:'اختاري المشهد',o:BGN}]}];
+const D=()=>({skin:1,eyes:0,eyeStyle:0,brow:0,hair:0,hairC:1,blush:1,bi:45,shadow:0,liner:0,lip:1,spark:0,dress:0,top:1,bottom:1,outer:0,glasses:0,earrings:0,necklace:0,bag:0,hat:0,bracelet:0,prop:0,bg:0});
+let s=D(),tab=0,chal=false,ti=0,mute=false,AC,X;
+const $=q=>document.querySelector(q);
+
+/* ============ أدوات الرسم ============ */
+const rgb=h=>[1,3,5].map(i=>parseInt(h.substr(i,2),16));
+const shade=(h,a)=>'#'+rgb(h).map(v=>{v=Math.round(a<0?v*(1+a):v+(255-v)*a);return v.toString(16).padStart(2,'0')}).join('');
+function hsl(h){const[r,g,b]=rgb(h).map(v=>v/255),mx=Math.max(r,g,b),mn=Math.min(r,g,b),l=(mx+mn)/2,d=mx-mn,sa=d?d/(1-Math.abs(2*l-1)):0;let H=0;if(d){H=mx==r?((g-b)/d)%6:mx==g?(b-r)/d+2:(r-g)/d+4;H*=60;if(H<0)H+=360}return[H,sa,l]}
+const E=(x,y,rx,ry,f,a=1,st,lw=1.5)=>{X.globalAlpha=a;X.beginPath();X.ellipse(x,y,rx,ry,0,0,7);if(f){X.fillStyle=f;X.fill()}if(st){X.strokeStyle=st;X.lineWidth=lw;X.stroke()}X.globalAlpha=1};
+const P=(d,f,st,w=1.5)=>{const p=new Path2D(d);if(f){X.fillStyle=f;X.fill(p)}if(st){X.strokeStyle=st;X.lineWidth=w;X.lineJoin='round';X.stroke(p)}};
+const L=(a,b,c,d,w,col)=>{X.strokeStyle=col;X.lineWidth=w;X.lineCap='round';X.beginPath();X.moveTo(a,b);X.lineTo(c,d);X.stroke()};
+const R=(x,y,w,h,f)=>{X.fillStyle=f;X.fillRect(x,y,w,h)};
+const G=(a,b)=>{const g=X.createLinearGradient(0,0,0,600);g.addColorStop(0,a);g.addColorStop(1,b);R(0,0,400,600,g)};
+const ST=(x,y,r,f)=>P(`M${x} ${y-r}Q${x} ${y} ${x+r} ${y}Q${x} ${y} ${x} ${y+r}Q${x} ${y} ${x-r} ${y}Q${x} ${y} ${x} ${y-r}Z`,f);
+const HT=(x,y,z,f,st)=>P(`M${x} ${y+z*.45}C${x-z*1.1} ${y-z*.2} ${x-z*.5} ${y-z} ${x} ${y-z*.4}C${x+z*.5} ${y-z} ${x+z*1.1} ${y-z*.2} ${x} ${y+z*.45}Z`,f,st);
+
+/* ============ الخلفيات (٤٠٠×٦٠٠) ============ */
+let BL_=false;
+const gr=(x0,y0,x1,y1,a,b)=>{const g=X.createLinearGradient(x0,y0,x1,y1);g.addColorStop(0,a);g.addColorStop(1,b);return g};
+const al=(a,f)=>{X.globalAlpha=a;f();X.globalAlpha=1};
+const BG=[
+()=>{G('#fff3e3','#f6d8bd');al(.35,()=>P('M40,40L190,500L-30,500Z','#fff7c9'));
+ R(30,60,120,140,'#8a5a3c');R(38,68,104,124,gr(0,68,0,192,'#bfe6ff','#e9f7ff'));R(88,68,4,124,'#8a5a3c');R(38,126,104,4,'#8a5a3c');E(110,150,24,10,'#fff',.8);
+ [290,345].forEach(x=>{L(x,0,x,52,2,'#9b7350');E(x,62,16,12,'#ffd98a');E(x,62,26,20,'#ffd98a',.25)});
+ R(240,150,150,8,'#a77a52');[[262,'#f4b6c2'],[300,'#fff'],[340,'#bfd8f2']].forEach(([x,c])=>{R(x-9,134,18,16,c);E(x,134,9,3,shade(c,-.1))});
+ R(0,478,400,122,'#d9ab78');for(let x=0;x<400;x+=50)L(x,478,x-24,600,2,'#c4925f');L(0,478,400,478,3,'#b98150');
+ R(300,430,90,8,'#a77a52');L(312,438,312,490,5,'#a77a52');L(378,438,378,490,5,'#a77a52');E(340,424,14,6,'#fff');R(30,430,36,50,'#c47a5a');[[48,420],[38,408],[58,410]].forEach(([x,y])=>E(x,y,14,10,'#8fc79a'))},
+()=>{G('#efe3fa','#fbe6ef');for(let y=20;y<460;y+=40)for(let x=(y/40%2)*20;x<420;x+=40)E(x,y,3,3,'#fff',.7);
+ R(0,478,400,122,'#e3cff0');E(200,540,170,34,'#f7bfd5');E(200,540,120,22,'#fbd5e3');
+ R(250,70,110,120,'#fff');R(256,76,98,108,'#2f2a5c');E(320,110,18,18,'#fff7d6');E(328,106,16,16,'#2f2a5c');[[276,100],[290,150],[338,160],[270,170]].forEach(([x,y])=>ST(x,y,4,'#fff'));
+ R(0,370,110,110,'#fff');R(0,350,110,40,'#f8b8cf');E(30,350,26,14,'#fff');
+ X.strokeStyle='#d9b8a0';X.lineWidth=2;X.beginPath();X.moveTo(0,40);X.quadraticCurveTo(100,90,200,40);X.quadraticCurveTo(300,0,400,50);X.stroke();for(let i=0;i<8;i++)E(i*52+12,54+Math.sin(i)*20,5,5,['#ffd98a','#ff9ec4','#9ee0ff'][i%3])},
+()=>{G('#ffc9b5','#d9b8f0');E(320,80,40,40,'#fff2c8');E(90,100,50,14,'#fff',.7);E(230,60,40,12,'#fff',.6);
+ [[0,300,60],[60,260,50],[110,330,55],[300,280,50],[350,320,50]].forEach(([x,y,w])=>{R(x,y,w,300,'#b79bc9');for(let j=0;j<5;j++)R(x+10,y+16+j*30,10,14,'#fff2c8')});
+ P('M268,470L304,230L316,230L352,470Z','#8f78a8');P('M304,230L310,140L316,230Z','#8f78a8');L(280,410,340,410,4,'#a58fb8');L(292,320,328,320,4,'#a58fb8');
+ R(0,470,400,130,'#8e7a9e');R(0,462,400,10,'#6f5b80');for(let x=6;x<400;x+=24){R(x,415,5,48,'#6f5b80');E(x+2,413,4,4,'#6f5b80')}R(0,410,400,6,'#6f5b80');
+ R(20,440,34,24,'#c47a5a');[[28,432],[38,426],[48,434]].forEach(([x,y])=>E(x,y,8,8,'#ff8fb8'))},
+()=>{G('#1d1040','#5b2a7e');[[60,'#ff5fc8'],[200,'#4de3ff'],[340,'#ffd04d']].forEach(([x,c])=>al(.18,()=>P(`M${x},40L${x-70},520L${x+70},520Z`,c)));
+ X.lineWidth=6;['#ff5fc8','#4de3ff'].forEach((c,i)=>{X.strokeStyle=c;X.shadowColor=c;X.shadowBlur=18;X.beginPath();X.arc(200,300,150-i*26,Math.PI,0);X.stroke()});X.shadowBlur=0;
+ L(200,0,200,50,2,'#ddd');E(200,76,28,28,'#e8e8ff');for(let i=-2;i<3;i++)L(200+i*10,50,200+i*10,102,1,'#aab');
+ R(0,478,400,122,'#150a30');for(let x=0;x<400;x+=40)R(x,478,38,3,'#ff5fc855');for(let i=0;i<16;i++)ST(20+i*25,30+(i*67)%380,4,i%2?'#4de3ff':'#ff5fc8')},
+()=>{G('#a9defc','#e6f6d8');E(60,80,50,14,'#fff');E(160,50,40,12,'#fff');E(320,70,36,36,'#ffe27a');E(320,70,52,52,'#ffe27a',.25);
+ E(100,470,240,110,'#a7dc9f');E(330,490,240,110,'#8bcb88');
+ [[50,330,'#7bc47f'],[350,350,'#6fb877']].forEach(([x,y,c])=>{R(x-6,y,12,100,'#9b6d4a');E(x,y,38,44,c);E(x-14,y+14,22,22,c)});
+ P('M50,500L350,500L384,600L16,600Z','#ffc7d6');for(let r=0;r<4;r++)for(let c=0;c<10;c++)if((r+c)%2)R(34+c*33-r*8,506+r*22,32,22,'#ffffff66');
+ R(300,486,40,26,'#c9915f');P('M300,486Q320,462 340,486',0,'#a87345',3);for(let i=0;i<9;i++){const x=20+i*45;L(x,470,x,490,2,'#5fa65f');E(x,466,6,6,['#fff','#ffd1e0','#fff3a6'][i%3])}},
+()=>{G('#8fe0ff','#fff1cf');E(80,80,60,16,'#fff',.8);E(320,70,34,34,'#fff2a8');R(0,300,400,110,'#4fc3e8');for(let i=0;i<6;i++)P(`M${i*70-10},330q18,-14 36,0t36,0`,0,'#fff',3);R(0,410,400,190,'#f3dcaa');E(80,470,70,10,'#e8c88a');L(345,270,345,480,4,'#8a5a3c');P('M285,310Q345,230 405,310Z','#ff8fb8');E(120,540,10,7,'#ffb8c8');ST(60,545,7,'#fff');ST(300,560,6,'#fff')},
+()=>{G('#c9e4ff','#f5fbff');for(let i=0;i<40;i++)E((i*97)%400,(i*53)%480,2+i%3,2+i%3,'#fff');R(0,500,400,100,'#fff');E(100,505,260,40,'#f1f8ff');
+ E(335,462,34,34,'#fff',1,'#cfe0f0');E(335,412,24,24,'#fff',1,'#cfe0f0');E(328,408,3,3,'#333');E(342,408,3,3,'#333');P('M335,415L357,419L335,423Z','#ff9a3c');
+ [[45,440],[95,455]].forEach(([x,y])=>{R(x-5,y+30,10,18,'#8a5a3c');P(`M${x},${y-110}L${x-34},${y}L${x+34},${y}Z`,'#4a9d7a');P(`M${x},${y-70}L${x-40},${y+30}L${x+40},${y+30}Z`,'#3d8a6a')})}];
+
+/* ============ الشخصية ============ */
+const gf=(c,y0,y1)=>{const g=X.createLinearGradient(0,y0,0,y1);g.addColorStop(0,shade(c,.25));g.addColorStop(1,c);return g};
+const TORSO='M160,252Q200,242 240,252L236,330Q235,352 232,366L168,366Q165,352 164,330Z';
+const DRP={a:'M162,252Q200,242 238,252L234,300L232,336Q262,390 276,440Q200,458 124,440Q138,390 168,336L166,300Z',m:'M162,252Q200,242 238,252L234,300L232,336Q252,372 258,404Q200,416 142,404Q148,372 168,336L166,300Z',l:'M162,252Q200,242 238,252L234,300L232,336Q270,410 292,488Q200,508 108,488Q130,410 168,336L166,300Z'};
+const BTP={skirt:'M166,350L234,350Q256,396 266,424Q200,440 134,424Q144,396 166,350Z',pants:'M164,350L236,350L241,500L207,500L200,398L193,500L159,500Z',shorts:'M166,350L234,350L243,418L206,418L200,392L194,418L157,418Z'};
+// قطعة ملابس مع تدرّج ونقشة (القصّ داخل مسار القطعة)
+function cloth(d,it){const p=new Path2D(d);X.save();X.fillStyle=gf(it[1],250,500);X.fill(p);X.clip(p);X.fillStyle=it[2];
+ if(it[4]=='dots')for(let y=262;y<500;y+=18)for(let x=110+((y/18)%2)*9;x<300;x+=18){X.beginPath();X.arc(x,y,2.6,0,7);X.fill()}
+ if(it[4]=='stripes')for(let y=250;y<500;y+=16)X.fillRect(100,y,200,6);
+ X.restore();X.strokeStyle=shade(it[1],-.2);X.lineWidth=1.6;X.stroke(p)}
+const CAP='M128,176Q114,70 200,62Q286,70 272,176Q262,128 228,116Q202,142 168,134Q138,146 128,176Z';
+function HB(h,c,d){const f=gf(c,60,380);[['M124,170Q112,58 200,52Q288,58 276,170L292,360Q200,385 108,360Z'],['M126,172Q114,58 200,54Q286,58 274,172L280,260Q200,282 120,260Z'],['M128,172Q120,66 200,60Q280,66 272,172Q200,196 128,172Z'],['M128,172Q120,66 200,60Q280,66 272,172Z','M262,100Q338,104 326,210Q320,300 296,330Q306,230 272,170Z'],['M128,172Q120,66 200,60Q280,66 272,172Z','M130,150Q80,172 84,260Q88,350 118,356Q124,270 142,210Z','M270,150Q320,172 316,260Q312,350 282,356Q276,270 258,210Z'],['M128,172Q120,66 200,60Q280,66 272,172Z'],['M128,172Q120,66 200,60Q280,66 272,172Z'],['M126,172Q114,58 200,54Q286,58 274,172L270,226Q200,236 130,226Z']][h].forEach(p=>P(p,f,d));
+ if(h==2)E(200,52,28,26,f,1,d);if(h==5){for(let k=0;k<7;k++)E(270+Math.sin(k)*5,190+k*27,14,17,f,1,d);E(272,376,8,8,'#f49ac0')}if(h==6){E(138,74,26,24,f,1,d);E(262,74,26,24,f,1,d)}if(h==3)E(274,136,7,7,'#f49ac0');if(h==4){E(110,170,7,7,'#f49ac0');E(290,170,7,7,'#f49ac0')}}
+
+/* ترتيب الطبقات: خلفية ← شعر خلفي ← جسم ← تنورة/فستان ← قميص ← جاكيت ← وجه ← شعر أمامي ← إكسسوارات */
+function draw(ctx,s,o={}){X=ctx;X.save();
+ if(o.nb)R(-80,-80,560,760,'#fdf0f4');else BG[s.bg]();
+ if(o.bgOnly){X.restore();return}
+ const sk=SKINS[s.skin][1],hc=HAIRC[s.hairC][1],hd=shade(hc,-.25),dk='#3a2430';
+ E(200,516,78,11,'#00000022');HB(s.hair,hc,hd);
+ L(184,396,184,498,22,sk);L(216,396,216,498,22,sk);E(180,508,18,9,'#f6b8cc',1,'#d9899f');E(220,508,18,9,'#f6b8cc',1,'#d9899f');
+ R(190,222,20,32,shade(sk,-.08));
+ L(160,262,142,346,17,sk);L(240,262,258,346,17,sk);E(141,353,10,10,sk);E(259,353,10,10,sk);
+ const bt=BT[s.bottom],tp=TP[s.top],ot=OT[s.outer];
+ if(s.dress){const dr=DR[s.dress];cloth(DRP[dr[5]],dr);L(168,336,232,336,5,dr[2]);if(dr[6])[158,242].forEach(x=>E(x,266,15,13,dr[1],1,shade(dr[1],-.2)))}
+ else{if(s.bottom)cloth(BTP[bt[5]],bt);else cloth(BTP.shorts,['','#e9e4ee','#e9e4ee','','plain']);
+  if(s.top){const lg=tp[5]=='long';L(162,260,lg?144:146,lg?340:318,22,tp[1]);L(238,260,lg?256:254,lg?340:318,22,tp[1]);cloth(TORSO,tp)}else cloth(TORSO,['','#fff','#fff','','plain'])}
+ E(200,250,13,7,sk);
+ if(s.outer){L(160,262,142,346,25,ot[1]);L(240,262,258,346,25,ot[1]);cloth('M156,254Q176,246 194,250L190,376Q172,380 154,374Z',ot);cloth('M244,254Q224,246 206,250L210,376Q228,380 246,374Z',ot);[300,326,352].forEach(y=>{E(198,y,2.4,2.4,ot[2],.9);E(202,y,2.4,2.4,ot[2],.9)})}
+ // الوجه
+ E(130,182,9,14,sk);E(270,182,9,14,sk);E(200,168,70,68,sk);
+ if(s.blush)[150,250].forEach(x=>E(x,204,16,9,BL[s.blush][1],.12+s.bi/100*.55));
+ const ec=EYEC[s.eyes][1];
+ [170,230].forEach((x,i)=>{const y=180,sg=i?1:-1;
+  if(s.shadow)E(x,y-11,19,11,SH[s.shadow][1],.55);
+  if(BL_&&s.eyeStyle!=2){X.strokeStyle=dk;X.lineWidth=4;X.lineCap='round';X.beginPath();X.arc(x,y,12,Math.PI*.1,Math.PI*.9);X.stroke()}else if(s.eyeStyle==2){X.strokeStyle=dk;X.lineWidth=4;X.lineCap='round';X.beginPath();X.arc(x,y+6,13,Math.PI*1.1,Math.PI*1.9);X.stroke()}
+  else{const ry=s.eyeStyle?12:19;E(x,y,15,ry,'#fff');
+   const g=X.createRadialGradient(x,y+4,2,x,y+3,15);g.addColorStop(0,shade(ec,.4));g.addColorStop(1,ec);
+   E(x,y+3,11.5,ry-2,g);E(x,y+3,5.5,Math.max(3,ry-9),'#1f1420');E(x+4,y-3,4,4.5,'#fff');E(x-4,y+8,2,2,'#fff',.8);
+   X.strokeStyle=dk;X.lineWidth=s.liner?5.5:3.4;X.lineCap='round';X.beginPath();X.ellipse(x,y,15.5,ry+.5,0,Math.PI*1.02,Math.PI*1.98);X.stroke();
+   if(s.liner)L(x+sg*15,y-3,x+sg*23,y-10,3.5,dk);
+   for(let k=0;k<2;k++)L(x+sg*(7+k*6),y-ry,x+sg*(10+k*7.5),y-ry-7,2,dk)}
+  X.strokeStyle=shade(hc,-.2);X.lineWidth=[3.5,3.5,6][s.brow];X.lineCap='round';X.beginPath();X.moveTo(x-14,149);X.quadraticCurveTo(x+(s.brow==1?sg*5:0),s.brow==1?136:142,x+14,149);X.stroke()});
+ E(200,199,3,2,shade(sk,-.2));
+ const lp=LIP[s.lip];P('M189,207Q200,219 211,207Q200,212 189,207Z',lp[1],shade(lp[1],-.3),1.2);if(lp[2])E(203,211,3.5,1.5,'#fff',.9);
+ if(s.spark){ST(146,194,6,'#fff');ST(254,196,5,'#fff6c8');ST(200,120,5,'#fff');ST(80,130,10,'#ffd98a');ST(332,200,9,'#fff');ST(90,330,8,'#ffd98a')}
+ P(CAP,gf(hc,60,180),hd);P('M150,100Q200,80 252,104',0,shade(hc,.35),3.5);P('M204,66Q190,104 166,134',0,hd,1.6);
+ // الإكسسوارات
+ const g=s.glasses;if(g==1){[170,230].forEach(x=>E(x,181,22,21,0,1,'#6b4a5e',3));L(192,181,208,181,3,'#6b4a5e')}
+ if(g==2){[170,230].forEach(x=>{E(x,182,23,17,'#2a2030',.88);E(x-6,176,7,3,'#fff',.4)});L(193,178,207,178,3.5,'#2a2030')}
+ if(g==3){[170,230].forEach(x=>HT(x,184,24,'#ff9ec466','#d6407f'));L(193,180,207,180,2.5,'#d6407f')}
+ if(g==4){[170,230].forEach((x,i)=>{const sg=i?1:-1;P(`M${x-22},186Q${x-22},168 ${x},170Q${x+22},168 ${x+24},180Q${x+20},198 ${x},198Q${x-20},198 ${x-22},186Z`,'#ffffff22','#c04a7a',3);L(x+sg*22,176,x+sg*31,165,3,'#c04a7a')});L(193,181,207,181,3,'#c04a7a')}
+ if(s.earrings)[131,269].forEach(x=>{const e=s.earrings;if(e==1)E(x,208,5,5,'#fff',1,'#bbb');if(e==2)E(x,216,9,9,0,1,'#e6b85c',3);if(e==3)ST(x,214,9,'#f5c84b');if(e==4)HT(x,214,10,'#ff7aa8')});
+ const nk=s.necklace;if(nk==1)for(let t=0;t<=10;t++){const u=t/10;E(176+48*u,(1-u)*(1-u)*254+2*u*(1-u)*286+u*u*254,3.8,3.8,'#fff',1,'#ccc',1)}
+ if(nk==2){P('M176,254Q200,288 224,254',0,'#e6b85c',1.8);HT(200,282,10,'#ff7aa8')}
+ if(nk==3){P('M178,248Q200,262 222,248',0,'#3b3040',6);E(200,259,4,4,'#f5c84b')}
+ if(s.bracelet)[142,258].forEach(x=>{if(s.bracelet==1)E(x,344,11,4,0,1,'#e6b85c',3.5);else for(let k=0;k<5;k++)E(x-8+k*4,344+(k%2),3,3,['#f49ac0','#cdb8ee'][k%2])});
+ if(s.bag==1){P('M250,364Q259,328 268,364',0,'#c9758f',3);P('M240,364h38v32q0,6 -6,6h-26q-6,0 -6,-6z','#e48fb0','#c9758f');E(259,376,3.5,3.5,'#f5d27a')}
+ if(s.bag==2){P('M246,372Q259,326 272,372',0,'#b99a6a',3);R(236,372,46,50,'#ecd5aa');R(236,388,46,6,'#f49ac0')}
+ const pr=s.prop;
+ if(pr==1){P('M128,326L154,326L150,358L132,358Z','#fff','#d9c4b0');R(131,338,22,10,'#c98f6b');P('M126,322h30v5h-30z','#8a5a44');P('M136,314Q130,304 138,296M146,314Q140,304 148,296',0,'#9a8a9a',2)}
+ if(pr==2){L(141,352,124,316,2.5,'#6aa86a');L(141,352,142,306,2.5,'#6aa86a');L(141,352,160,318,2.5,'#6aa86a');[[124,316,'#f49ac0'],[142,306,'#cdb8ee'],[160,318,'#ffd98a']].forEach(([x,y,c])=>{for(let k=0;k<5;k++)E(x+Math.cos(k*1.26)*7,y+Math.sin(k*1.26)*7,6,6,c);E(x,y,4,4,'#fff3a6')})}
+ if(pr==5){L(141,352,92,270,1.5,'#999');E(88,244,22,28,'#ff8fb8',1,'#d6679a');E(81,232,5,8,'#fff',.5)}
+ if(pr==6){P('M130,330L152,330L141,366Z','#e3b574','#c4925f');E(141,322,14,12,'#ffb8d0');E(141,310,10,9,'#fff0f5')}
+ if(pr==3){ST(335,130,24,'#ffd04d');ST(300,76,10,'#fff');ST(352,190,9,'#f49ac0')}
+ if(pr==4){E(322,500,22,15,'#f1ece6',1,'#cfc5ba');E(322,476,17,15,'#f1ece6',1,'#cfc5ba');P('M307,470L309,454L320,464Z','#f1ece6','#cfc5ba');P('M337,470L335,454L324,464Z','#f1ece6','#cfc5ba');E(316,477,2,2.8,'#333');E(328,477,2,2.8,'#333');E(322,483,2.5,1.6,'#f49ac0')}
+ const h=s.hat;
+ if(h==1){P('M132,124Q200,48 268,124',0,'#f49ac0',8);P('M248,88L224,72L224,104Z','#f49ac0');P('M248,88L272,72L272,104Z','#f49ac0');E(248,88,7,7,'#d9578d')}
+ if(h==2){E(196,88,68,22,'#d65c7c');P('M136,92Q138,44 200,44Q262,46 264,92Z','#e0708c');E(200,42,6,4,'#a63a55')}
+ if(h==3)[0,1,2,3,4].forEach(k=>{E(254+Math.cos(k*1.26)*8,112+Math.sin(k*1.26)*8,7,7,'#fff',1,'#f3c6d6');E(254,112,5,5,'#ffd04d')});
+ if(h==5){P('M160,106L168,62L184,86L200,56L216,86L232,62L240,104Z','#ffd04d','#d9a21b',2);E(200,72,4,4,'#ff6fa0')}
+ if(h==6){P('M134,112Q134,50 200,48Q266,50 266,112Z','#cdb8ee','#a98fd6',1.5);R(132,100,136,16,'#a98fd6');E(200,46,12,12,'#fff')}
+ if(h==4){E(200,106,112,20,'#f3d9a4',1,'#cdae78');P('M130,106Q132,44 200,44Q268,44 270,106Z','#f6e2b3','#cdae78');R(132,90,136,10,'#f49ac0')}
+ /* إطار وشارة ووسم (وضع الصورة) */
+ if(o.frame){P('M8,8H392V592H8Z',0,'#f7b6cc',16);P('M18,18H382V582H18Z',0,'#fff',3);[[22,22],[378,22],[22,578],[378,578]].forEach(([x,y])=>HT(x,y,11,'#ff8fb8'));ST(60,38,8,'#ffd98a');ST(340,560,8,'#ffd98a')}
+ X.textAlign='center';X.direction='rtl';
+ if(o.badge){const r=o.r;X.beginPath();X.arc(338,64,31,0,7);X.fillStyle='#fffaf5';X.fill();X.lineWidth=4;X.strokeStyle='#f4a6bd';X.stroke();X.fillStyle='#4a3548';X.font='800 24px Tajawal,sans-serif';X.fillText(r.score,338,68);X.fillStyle='#f2b84b';X.font='700 11px sans-serif';X.fillText('★'.repeat(r.stars),338,84)}
+ if(o.tag){P('M60,546H340Q350,546 350,556V574Q350,584 340,584H60Q50,584 50,574V556Q50,546 60,546Z','#fffaf5e6','#f4a6bd',2);X.fillStyle='#4a3548';X.font='800 14px Tajawal,sans-serif';X.fillText(o.r.title+'  •  '+new Date().toLocaleDateString('ar'),200,570)}
+ X.restore()}
+
+/* ============ نظام التقييم ============ */
+const worn=s=>{const a=[];if(s.dress)a.push(DR[s.dress]);else{if(s.top)a.push(TP[s.top]);if(s.bottom)a.push(BT[s.bottom])}if(s.outer)a.push(OT[s.outer]);return a};
+const accs=s=>Object.keys(ACC).filter(k=>s[k]).map(k=>ACC[k][s[k]]);
+const tg=x=>x.length>2?x[3]:x[1];
+function rate(s){
+ const cl=worn(s),ac=accs(s),all=[...cl,...ac],tags=all.map(tg),cnt={};tags.forEach(t=>cnt[t]=(cnt[t]||0)+1);
+ const dom=Object.keys(cnt).sort((a,b)=>cnt[b]-cnt[a])[0]||'casual';
+ let h=all.length>1?cnt[dom]/all.length:.5,T=THEMES[ti],th=0;
+ if(chal){th=tags.length?tags.reduce((a,t)=>a+(T.w[t]||0),0)/tags.length:0;th=Math.min(1,th+(s.bg==T.bg?.15:0))}
+ // تناسق الألوان: ألوان محايدة أو متقاربة أو متكاملة = أفضل
+ const hs=cl.map(x=>hsl(x[1]));let sum=0,n=0;const neu=x=>x[1]<.18||x[2]>.92||x[2]<.22;
+ for(let i=0;i<hs.length;i++)for(let j=i+1;j<hs.length;j++){let d=Math.abs(hs[i][0]-hs[j][0]);d=Math.min(d,360-d);sum+=neu(hs[i])||neu(hs[j])||d<35?1:d>150?.85:.55;n++}
+ const cs=n?sum/n:.85;
+ const mk=(s.blush>0)+(s.shadow>0)+(s.lip>0)+(s.liner>0)+(s.spark>0);
+ const bal=Math.max(.2,1-Math.abs(mk-3)*.17-Math.abs(ac.length-3)*.12);
+ const cr=Math.min(1,.4+.1*new Set(tags).size+(s.prop?.12:0)+(s.spark?.1:0)+(s.hat?.1:0)+(s.outer?.08:0));
+ const a=chal?th:h,tot=chal?th*.4+cs*.2+bal*.2+cr*.2:h*.3+cs*.25+bal*.25+cr*.2;
+ const score=Math.max(35,Math.min(100,Math.round(tot*100))),stars=Math.max(1,Math.min(5,Math.round(score/20)));
+ const title=score>=88?TT[dom][0]:score>=70?TT[dom][1]:'مصممة صاعدة 🌱';
+ const tips=[];
+ if(chal)tips.push(th<.5?`الإطلالة لا تناسب «${T.n}» بعد، جرّبي قطعًا بطابع ${Object.keys(T.w).map(k=>TAGN[k]).join(' أو ')}.`:`إطلالة مناسبة جدًا لـ «${T.n}»! 🎉`);
+ else if(h<.6)tips.push('اختاري قطعًا من نفس الستايل لإطلالة أكثر تناغمًا.');
+ tips.push(cs<.7?'جرّبي ألوانًا متقاربة أو محايدة (كريمي، أبيض) لتناسق أجمل.':'تناسق الألوان لطيف ومريح للعين 💗');
+ if(mk<2)tips.push('أضيفي لمسة مكياج: أحمر خدود أو أحمر شفاه لإشراقة أكبر.');else if(mk>4)tips.push('المكياج كثير قليلًا، خففي طبقة لإطلالة أنقى.');
+ if(ac.length<2)tips.push('إكسسوار أو اثنان سيكملان الإطلالة.');else if(ac.length>4)tips.push('قللي الإكسسوارات قليلًا؛ البساطة أنيقة!');
+ if(cr>.85)tips.push('لمستك الإبداعية واضحة ✨');
+ return{score,stars,title,parts:[a,cs,bal,cr],tips:tips.slice(0,3)}}
+
+/* ============ الصوت (Web Audio) ============ */
+function snd(t){if(mute)return;try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();const n=AC.currentTime;
+ if(t=='shutter'){const b=AC.createBuffer(1,AC.sampleRate*.15,AC.sampleRate),d=b.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=(Math.random()*2-1)*(1-i/d.length);const o=AC.createBufferSource(),g=AC.createGain();o.buffer=b;g.gain.value=.3;o.connect(g).connect(AC.destination);o.start();return}
+ (t=='spark'?[1047,1319,1568]:[720]).forEach((f,i)=>{const o=AC.createOscillator(),g=AC.createGain(),a=n+i*.07;o.frequency.value=f;g.gain.setValueAtTime(.001,a);g.gain.exponentialRampToValueAtTime(.12,a+.01);g.gain.exponentialRampToValueAtTime(.001,a+.18);o.connect(g).connect(AC.destination);o.start(a);o.stop(a+.2)})}catch(e){}}
+
+/* ============ الواجهة ============ */
+function paint(){const c=$('#cv'),x=c.getContext('2d');x.setTransform(2,0,0,2,0,0);draw(x,s);const r=rate(s);
+ $('#live').textContent='★'.repeat(r.stars)+' '+r.score+'/100 · '+r.title;
+ if($('#rate').classList.contains('show'))showRate(r)}
+function showRate(r=rate(s)){const lb=[chal?'مطابقة التحدّي':'تناغم الستايل','تنسيق الألوان','توازن المكياج والإكسسوار','الإبداع'];
+ $('#rate').innerHTML=`<div class="stars">${'★'.repeat(r.stars)}${'☆'.repeat(5-r.stars)}</div><div class="big">${r.score}<small style="font-size:16px"> / 100</small></div><div class="badge">${r.title}</div>`+
+ r.parts.map((p,i)=>`<div class="m"><span>${lb[i]}</span><i><b style="width:${Math.round(p*100)}%"></b></i><span>${Math.round(p*100)}</span></div>`).join('')+`<ul>${r.tips.map(t=>`<li>${t}</li>`).join('')}</ul>`;
+ $('#rate').classList.add('show')}
+function chalUI(){const c=$('#chal');c.classList.toggle('show',chal);if(chal)c.innerHTML=`<b>التحدّي: ${THEMES[ti].n}</b><br><small>ألبسي الشخصية لتناسب المناسبة، والخلفية المناسبة تمنحك نقاطًا إضافية.</small><br><button class="btn" id="nc" style="margin-top:6px">🎯 تحدٍّ جديد</button>`}
+// صور مصغّرة: نرسم الخيار نفسه على الشخصية ونقصّ المنطقة المناسبة
+const CR={head:[100,70,200],hair:[70,40,260],low:[70,330,260],body:[70,236,260],acc:[70,290,240],neck:[110,200,180],bg:[0,100,400]};
+const CK={skin:'head',eyes:'head',eyeStyle:'head',brow:'head',hair:'hair',hairC:'hair',blush:'head',shadow:'head',liner:'head',lip:'head',spark:'head',glasses:'head',earrings:'head',hat:'hair',dress:'body',top:'body',outer:'body',bottom:'low',necklace:'neck',bag:'acc',bracelet:'acc',prop:'acc',bg:'bg'};
+function thumb(c){const k=c.dataset.k,i=+c.dataset.i,[cx,cy,w]=CR[CK[k]],sc=c.width/w,x=c.getContext('2d'),t={...s,[k]:i};
+ if(k=='dress'||k=='top'||k=='bottom')t.outer=0;if(k=='top'||k=='bottom')t.dress=0;
+ x.setTransform(sc,0,0,sc,-cx*sc,-cy*sc);draw(x,t,{nb:k!='bg',bgOnly:k=='bg'})}
+function panel(){$('#tabs').innerHTML=TABS.map((t,i)=>`<button class="tab${i==tab?' on':''}" role="tab" data-t="${i}">${t.n}</button>`).join('');
+ $('#opts').innerHTML=TABS[tab].r.map(r=>{if(r.sl)return s.blush?`<div class="row"><h4>${r.t}</h4><input type="range" id="sl" min="0" max="100" value="${s.bi}"></div>`:'';
+  return`<div class="row"><h4>${r.t}</h4><div class="${r.sw?'ch':'tg'}">`+r.o.map((x,i)=>{const on=s[r.k]==i?' on':'';
+   if(r.sw)return`<button class="sw${on}" data-k="${r.k}" data-i="${i}" title="${x[0]}" aria-label="${x[0]}" style="background:${x[1]||'#fff'}">${x[1]?'':'✕'}</button>`;
+   return`<button class="th${on}" data-k="${r.k}" data-i="${i}" title="${x[0]}" aria-label="${x[0]}">${x[0]=='بدون'?'🚫':`<canvas width="128" height="128" data-k="${r.k}" data-i="${i}"></canvas>`}</button>`}).join('')+'</div></div>'}).join('');
+ $('#opts').querySelectorAll('canvas').forEach(thumb)}
+function sync(snds){panel();paint();const c=$('#cv');c.classList.remove('pop');void c.offsetWidth;c.classList.add('pop');if(snds)snd(snds)}
+document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
+ if(b.dataset.t){tab=+b.dataset.t;panel();snd('click')}
+ else if(b.dataset.k){s[b.dataset.k]=+b.dataset.i;sync(['spark','spark'].includes(b.dataset.k)||b.dataset.k=='spark'?'spark':'click')}
+ else if(b.id=='nc'){ti=(ti+1)%THEMES.length;chalUI();paint();snd('spark')}});
+document.addEventListener('input',e=>{if(e.target.id=='sl'){s.bi=+e.target.value;paint()}});
+$('#chk').onchange=e=>{chal=e.target.checked;chalUI();paint();snd('spark')};
+$('#rb').onclick=()=>{const c=$('#rate');if(c.classList.contains('show')&&c.dataset.o){c.classList.remove('show');c.dataset.o='';return}c.dataset.o=1;showRate();snd('spark')};
+$('#rst').onclick=()=>{s=D();sync('click')};
+const RN={skin:5,eyes:5,eyeStyle:3,brow:3,hair:8,hairC:7,blush:5,shadow:6,liner:2,lip:6,spark:2,dress:8,top:7,bottom:7,outer:6,glasses:5,earrings:5,necklace:4,bag:3,hat:7,bracelet:3,prop:7,bg:7};
+$('#rnd').onclick=()=>{Object.keys(RN).forEach(k=>{s[k]=Math.floor(Math.random()*RN[k]);if(['dress','outer','glasses','earrings','necklace','bag','hat','bracelet','prop'].includes(k)&&Math.random()<.5)s[k]=0;if(['top','bottom'].includes(k)&&!s[k])s[k]=1});s.bi=20+Math.floor(Math.random()*70);sync('spark')};
+$('#snd').onclick=()=>{mute=!mute;$('#snd').textContent=mute?'🔇':'🔊';snd('click')};
+
+/* ============ ستوديو التصوير والتحميل ============ */
+const po=()=>({frame:$('#fr').checked,badge:$('#bd').checked,tag:$('#tg').checked,r:rate(s)});
+function pv(){const x=$('#pv').getContext('2d');x.setTransform(2,0,0,2,0,0);x.clearRect(0,0,400,600);draw(x,s,po())}
+$('#shot').onclick=()=>{const f=$('#flash');f.classList.remove('go');void f.offsetWidth;f.classList.add('go');snd('shutter');setTimeout(()=>{$('#modal').classList.add('show');pv()},380)};
+['fr','bd','tg'].forEach(i=>$('#'+i).onchange=pv);
+$('#ed').onclick=()=>$('#modal').classList.remove('show');
+$('#nw').onclick=()=>{$('#modal').classList.remove('show');s=D();ti=Math.floor(Math.random()*THEMES.length);chalUI();sync('spark')};
+// تصدير PNG بدقة ١٢٠٠×١٨٠٠ (رسم كامل بالكانفس، بلا صور خارجية فلا مشاكل CORS)
+$('#dl').onclick=()=>{const c=document.createElement('canvas');c.width=1200;c.height=1800;const x=c.getContext('2d');x.setTransform(3,0,0,3,0,0);draw(x,s,po());
+ const go=u=>{const a=document.createElement('a');a.href=u;a.download='my-look.png';document.body.appendChild(a);a.click();a.remove()};
+ if(c.toBlob)c.toBlob(b=>{const u=URL.createObjectURL(b);go(u);setTimeout(()=>URL.revokeObjectURL(u),3000)},'image/png');else go(c.toDataURL('image/png'));snd('spark')};
+
+setInterval(()=>{BL_=true;const q=()=>{const x=$('#cv').getContext('2d');x.setTransform(2,0,0,2,0,0);draw(x,s)};q();setTimeout(()=>{BL_=false;q()},140)},3600);
+sync();document.fonts&&document.fonts.ready.then(paint);
+</script></body></html>
